@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Example of How to Play a Sound on Click or on MouseOver</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Buttons/2.0.0/css/buttons.min.css" type="text/css" media="all">
+<script language="javascript" type="text/javascript">
+function playSound(soundfile) {
+  document.getElementById("sound").innerHTML=
+    "<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
+}
+
+function playSoundFromDrive(soundfileid) {
+    var googleDriveRoot = 'https://googledrive.com/host/';
+    playSound(googleDriveRoot+soundfileid);
+}
+
+/*
+  This function play a sound while adding a 'embed' element
+*/
+function playSoundFromElement(element) {
+    var googleDriveRoot = 'https://googledrive.com/host/';
+    // Get sound file identifier from parent
+    var soundfileid = element.parentNode.getAttribute('sound-link');
+
+      // Create a new element and format it with src and attributes
+      var embed = document.createElement("embed");
+
+      var attHidden = document.createAttribute("hidden");
+      attHidden.value = "true";
+      embed.setAttributeNode(attHidden);
+      
+      var attAutostart = document.createAttribute("autostart");
+      attAutostart.value = "true";
+      embed.setAttributeNode(attAutostart);
+      
+      var attLoop = document.createAttribute("loop");
+      attLoop.value = "false";
+      embed.setAttributeNode(attLoop);
+      
+      var attSrc = document.createAttribute("src");
+      attSrc.value = googleDriveRoot + soundfileid;
+      embed.setAttributeNode(attSrc);
+      
+      // If element doesn't exist, then remove it
+      var oldEmbed = element.getElementsByTagName("embed")[0];
+      if(oldEmbed != null) {
+        element.removeChild(oldEmbed);
+      }
+      
+      // Add the node
+      element.appendChild(embed);
+
+}
+
+</script>
+</head>
+
+<body>
+
+<div sound-link="0Bx7PMCXE7S-rWnljVGV0NTJDYVk">
+<!--<p onmouseover="playSound('0Bx7PMCXE7S-rWnljVGV0NTJDYVk');">Or you can put your mouse over this paragraph to hear the same bird sound.</p>-->
+<span id="sound"></span>
+
+<button class="button" onclick="playSoundFromDrive('0Bx7PMCXE7S-rWnljVGV0NTJDYVk');">Click me</button>
+<button onclick="playSound('0Bx7PMCXE7S-rWnljVGV0NTJDYVk');">Click me second</button>
+<button onclick="playSoundFromElement(this);">Test</button>
+
+<!--<button onclick="playSoundFromElement(this);">Test
+  <embed src="https://googledrive.com/host/0Bx7PMCXE7S-rWnljVGV0NTJDYVk" hidden="true" autostart="true" loop="false" />
+</button>-->
+
+</div>
+</body>
+</html>
