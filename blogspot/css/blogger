@@ -1,0 +1,31 @@
+.page_enfant {
+text-align: justify;
+}
+.post {
+text-align: justify;
+}
+ul.bullet_enfant {
+list-style-type:circle;
+}
+li subject {
+font-size: large;
+font-weight: bold;
+}
+psubject {
+font-weight: bold;
+text-decoration: underline;
+}
+ul ul li subject {
+font-size: large;
+font-weight: normal;
+text-decoration: underline;
+}
+.image {
+text-align: center;
+font-size: small;
+font-style: italic;
+}
+.image img {
+display: block;
+margin: 0 auto;
+}
