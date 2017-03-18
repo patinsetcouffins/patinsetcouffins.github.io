@@ -29,6 +29,12 @@ animal {
     font-size:18px;
 }
 
+solution {
+    font-weight:bold;
+    font-family:Verdana;
+    font-size:18px;
+}
+
 .buttonFullScreen {
   -webkit-border-radius: 11;
   -moz-border-radius: 11;
