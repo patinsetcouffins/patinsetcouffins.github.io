@@ -1,7 +1,7 @@
 $(document).ready(function(){
   
   $.ajax({
-   url:$(this).find('#patinsCouffinsContent').attr('href');,
+   url:$('#patinsCouffinsContent').attr('href');,
    type:'GET',
    success: function(data){
        var htmlData = $(data).html();
