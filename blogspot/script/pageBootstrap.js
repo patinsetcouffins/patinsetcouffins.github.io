@@ -7,6 +7,10 @@ $(document).ready(function(){
   var elementId = '#patinsCouffinsContent';
   var href = $(elementId).attr('href');
   
+  if(href == undefined) {
+    console.warn("Your main div should have id '%s' and an href attribute", elementId);
+  }
+  
   $.ajax({
    url:href,
    type:'GET',
