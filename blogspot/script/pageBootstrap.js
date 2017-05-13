@@ -1,11 +1,18 @@
+/**
+* This is the bootstrap method.
+* When the document is loaded, it gets the attribute 'href' from a #patinsCouffinsContent DOM element
+* then get its content as String via an Ajax call
+*/
 $(document).ready(function(){
+  var elementId = '#patinsCouffinsContent';
+  var href = $(elementId).attr('href');
   
   $.ajax({
-   url:$('#patinsCouffinsContent').attr('href'),
+   url:href,
    type:'GET',
    success: function(data){
        var htmlData = $(data).html();
-       $('#patinsCouffinsContent').html(htmlData);
+       $(elementId).html(htmlData);
    }
 });
   
