@@ -15,7 +15,17 @@ $(document).ready(function(){
    url:href,
    type:'GET',
    success: function(data){
-       var htmlData = $(data).find('div').first().html();
+      var htmlData;
+      var arrayLength = $(data).length;
+      for (var i = 0; i < arrayLength; i++) {
+        var elt = $(data)[i];
+        if(elt.nodeName == "DIV") {
+            htmlData = elt;
+            break;
+        }
+      }
+     
+       //var htmlData = $(data).find('div').first().html();
        $(elementId).html(htmlData);
    }
 });
