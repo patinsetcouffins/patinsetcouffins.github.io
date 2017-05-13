@@ -15,7 +15,7 @@ $(document).ready(function(){
    url:href,
    type:'GET',
    success: function(data){
-       var htmlData = $(data).html();
+       var htmlData = $(data).find('div').first().html();
        $(elementId).html(htmlData);
    }
 });
